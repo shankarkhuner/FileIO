@@ -1,0 +1,34 @@
+
+
+//Byte Orianted Stream Channel:-
+
+//import java.io.FileReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+//import java.io.FileWriter;
+import java.io.BufferedInputStream;
+import java.io.FileOutputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+
+class ByteChannel01
+{
+	public static void main(String[] args) throws FileNotFoundException, IOException
+	{
+		FileInputStream fis = new FileInputStream("D:\\cyber4.txt");
+		BufferedInputStream bis = new BufferedInputStream(fis);
+		FileOutputStream fos = new FileOutputStream("D:\\Success4.txt");
+		BufferedOutputStream bos = new BufferedOutputStream(fos);
+		int info;
+
+		while((info=bis.read())!=-1)
+		{
+			System.out.println(" "+(char)info);
+			bos.write(info);
+		}
+		fis.close();
+		fos.close();
+		bis.close();
+		bos.close();
+	}
+}
